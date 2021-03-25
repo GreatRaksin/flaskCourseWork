@@ -1,5 +1,7 @@
-from app import app, cursor, db
-from flask import render_template, redirect, url_for, request
+from flask import render_template
+
+from app import app
+from app import cursor
 
 
 @app.route('/')
@@ -21,10 +23,17 @@ def songs_page():
 
 @app.route('/bands')
 def bands_page():
-    query = '''SELECT bands.name, bands.date_of_est, genres.name, countries.name 
+    query = '''SELECT bands.name, 
+    bands.date_of_est, 
+    bands.image, 
+    bands.link_wiki, 
+    genres.name, 
+    countries.name 
     FROM bands
     INNER JOIN genres ON bands.genre_id = genres.id
-    INNER JOIN countries ON bands.country_id = countries.id'''
+    INNER JOIN countries ON bands.country_id = countries.id
+    ORDER BY bands.id;
+    '''
     cursor.execute(query)
     data = cursor.fetchall()
     return render_template('bands.html', title='Bands page', data=data)
