@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="row">
     {% for datum in data %}
         <div class="card band-card">
             <div class="card-header">
                 {{ datum[0] }}
             </div>
+            <img src="{{ datum[2] }}" class="card-img-top" alt="band: {{ datum[0] }}" width="100px">
             <div class="card-body">
-                <h5 class="card-title">Established {{ datum[1].strftime('%d.%m.%Y') }} in {{ datum[3] }}</h5>
-                <p class="card-text">Main genre: {{ datum[2] }}</p>
+                <h5 class="card-title">Established {{ datum[1].strftime('%d.%m.%Y') }} in {{ datum[5] }}</h5>
+                <p class="card-text">Main genre: {{ datum[4] }}</p>
+                <a href="{{ datum[3] }}" class="btn btn-primary">Wikipedia</a>
             </div>
         </div>
     {% endfor %}
+    </div>
 
 {% endblock %}

@@ -30,6 +30,10 @@
 }
 
 .band-card {
-    max-width: 600px;
+    width: 30%;
     margin: 1em auto;
+}
+
+.card-img-top {
+    max-width: 300px;
 }
