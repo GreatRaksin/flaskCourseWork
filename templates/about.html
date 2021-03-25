@@ -1,42 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <style>
-        .card {
-            width: 40%;
-            border: 0.5px solid dimgray;
-            border-radius: 10px;
-            background-color: #fff
-        }
-
-        .stats {
-            background: #f2f5f8 !important;
-            color: #000 !important;
-            margin: 1em;
-        }
-
-        .articles {
-            font-size: 10px;
-            color: #a1aab9;
-        }
-
-        .number1 {
-            font-weight: 500
-        }
-
-        .followers {
-            font-size: 10px;
-            color: #a1aab9
-        }
-
-        .number2 {
-            font-weight: 500
-        }
-    </style>
-
     {% for info in data %}
         <div class="container mt-5 d-flex justify-content-center">
-            <div class="card p-3">
+            <div class="card author-card p-3">
                 <div class="d-flex align-items-center">
                     <div class="image"><img src="{{ info[4] }}" class="rounded" width="155"></div>
                     <div class="ml-3 w-100">
