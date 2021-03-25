@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="text-center">Курсовая работа студента</h1>
+    <h2 class="text-center">Раксин Демид Александрович</h2>
+
+    <div class="card text-center my-4">
+        <div class="card-body">
+            <h5 class="card-title">Тема курсовой работы:</h5>
+            <h6 class="card-subtitle mb-2 text-muted">База данных для музыкального магазина</h6>
+        </div>
+    </div>
+
+    <h1 class="text-center">Использованные технологии:</h1>
+    <div class="row d-flex justify-content-between">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/py.jpg') }}" class="card-img-top" width="30%">
+            <div class="card-body">
+                <p class="card-text">Python (Back-End)</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/bs4.jpg') }}" class="card-img-top" width="30%">
+            <div class="card-body">
+                <p class="card-text">Bootstrap (Front-End)</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/pgsql.jpg') }}" class="card-img-top" width="30%">
+            <div class="card-body">
+                <p class="card-text">PostgreSQL (DB Engine)</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
