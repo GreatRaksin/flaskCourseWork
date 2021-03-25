@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for datum in data %}
+        <div class="card band-card">
+            <div class="card-header">
+                {{ datum[0] }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Established {{ datum[1].strftime('%d.%m.%Y') }} in {{ datum[3] }}</h5>
+                <p class="card-text">Main genre: {{ datum[2] }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

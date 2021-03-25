@@ -19,6 +19,17 @@ def songs_page():
     return render_template('songs.html', title='songs', data=data)
 
 
+@app.route('/bands')
+def bands_page():
+    query = '''SELECT bands.name, bands.date_of_est, genres.name, countries.name 
+    FROM bands
+    INNER JOIN genres ON bands.genre_id = genres.id
+    INNER JOIN countries ON bands.country_id = countries.id'''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    return render_template('bands.html', title='Bands page', data=data)
+
+
 @app.route('/author')
 def about_page():
     query = 'SELECT * FROM author'
