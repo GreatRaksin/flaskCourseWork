@@ -45,3 +45,17 @@ def about_page():
     cursor.execute(query)
     data = cursor.fetchall()
     return render_template('about.html', title='About me', data=data)
+
+
+@app.route('/orders')
+def orders_page():
+    query = '''SELECT orders.created_at,
+       customers.full_name, songs.name, songs.price
+        FROM ordered_songs
+        INNER JOIN songs ON ordered_songs.song_id = songs.id
+        INNER JOIN orders ON ordered_songs.order_id = orders.id
+        INNER JOIN customers ON orders.customer_id = customers.id
+        ORDER BY orders.created_at DESC;'''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    return render_template('orders.html', title='Orders', data=data)
