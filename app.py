@@ -1,13 +1,12 @@
-from flask import Flask, request,render_template
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 from config import Config
-import os
 
 try:
     conn = psycopg2.connect(database='postgres', user='postgres',
                             password='root', host='localhost')
-    print('conncted')
+    print('connected')
     cursor = conn.cursor()
 except ConnectionError as C:
     print('unable to connect', C)

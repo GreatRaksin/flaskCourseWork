@@ -2,7 +2,10 @@
 
 {% block content %}
     <h1 class="text-center">Songs</h1>
-    <div class="text-center form-text">SELECT * FROM SONGS</div>
+    <div class="text-center form-text">SELECT songs.id, songs.name, bands.name, albums.name, songs.price<br>
+    FROM songs<br>
+    INNER JOIN bands ON songs.band_id = bands.id<br>
+    INNER JOIN albums ON songs.album_id = albums.id;</div>
 
     <table class="table table-striped">
 
